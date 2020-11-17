@@ -1,13 +1,15 @@
 class Newton {
-    constructor(p, v, a) {
-        this.position = p;
-        this.velocity = v;
-        this.acceleration = a;
+    constructor(pos, vel, acc, diam, clr) {
+        this.position = pos;
+        this.velocity = vel;
+        this.acceleration = acc;
+        this.diam = diam;
+        this.clr = clr;
     }
 
-    show(d, clr) {
+    show() {
         fill(clr);
-        circle(this.position.x, this.position.y, d);
+        circle(this.position.x, this.position.y, diam);
     }
 
     update() {
@@ -15,5 +17,6 @@ class Newton {
         this.position.add(this.velocity);
         if (this.position.x > width) { this.position.x = 0 };
         if (this.position.y > height) { this.position.y = 0 };
+        if (this.velocity.y >= 10) { this.velocity.y = 10 };
     }
 }
