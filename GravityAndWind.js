@@ -1,11 +1,12 @@
 // https://www.youtube.com/watch?v=Uibl0UE4VH8&list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM&index=17
 
-let t, diam, clr;
+let t, diam, clr, maxVel;
 
 function initialize() {
     initMyVariableNames();
     diam = 10;
     clr = clrAlmostRed;
+    maxVel = 5;
 }
 
 function setup() {
@@ -14,7 +15,7 @@ function setup() {
     let p = createVector(0, height / 2);
     let v = createVector(1, 3);
     let a = createVector(0, .01);
-    t = new Newton(p, v, a, diam, clr, 5);
+    t = new Newton(p, v, a, diam, clr, maxVel);
 }
 
 function draw() {
