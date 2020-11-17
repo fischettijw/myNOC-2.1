@@ -1,9 +1,10 @@
 class Newton {
-    constructor(pos, vel, acc, diam, clr, vLimit) {
+    constructor(pos, vel, acc, diam, mass, clr, vLimit) {
         this.position = pos;
         this.velocity = vel;
         this.acceleration = acc;
         this.diam = diam;
+        this.mass = mass;
         this.clr = clr;
         if (vLimit == null) {
             this.vLimit = Number.MAX_VALUE; // 1.7976931348623157e+308
@@ -15,6 +16,10 @@ class Newton {
     show() {
         fill(clr);
         circle(this.position.x, this.position.y, diam);
+    }
+
+    applyForce(force) {
+        this.acceleration.add(force);
     }
 
     update() {
@@ -34,8 +39,9 @@ class Newton {
     }
 
     debugOutput() {
+        fill('yellow');
         textSize(18);
-        text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 200);
-        text(`Acceleration   ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 240);
+        text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
+        text(`Acceleration   ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
     }
 }
