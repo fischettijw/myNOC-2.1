@@ -4,7 +4,7 @@ let t, diam, clr;
 
 function initialize() {
     initMyVariableNames();
-    diam = 50;
+    diam = 10;
     clr = clrAlmostRed;
 }
 
