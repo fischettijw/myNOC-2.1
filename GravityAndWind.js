@@ -7,7 +7,7 @@ function initialize() {
     diam = 10;
     clr = _clrAlmostRed;
     mass = 1;
-    maxVel = 5;
+    maxVel = 4;
 }
 
 function setup() {

@@ -43,8 +43,8 @@ class Newton {
     debugOutput() {
         fill('yellow');
         textSize(18);
-        text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
-        text(`Acceleration   ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
-        text(`Position          ${this.position.x.toFixed(4)}  ${this.position.y.toFixed(8)}`, 20, 260);
+        text(`Velocity          ${this.velocity.x.toFixed(8)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
+        text(`Acceleration   ${this.acceleration.x.toFixed(8)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
+        text(`Position          ${this.position.x.toFixed(8)}  ${this.position.y.toFixed(8)}`, 20, 260);
     }
 }
