@@ -31,8 +31,10 @@ class Newton {
 
     edges(func) {
         if (func == null) {
-            if (this.position.x > width) { this.position.x = 0 };
-            if (this.position.y > height) { this.position.y = 0 };
+            if (this.position.x >= width) { this.position.x = 0 };
+            if (this.position.x < 0) { this.position.x = width - 1 };
+            if (this.position.y >= height) { this.position.y = 0 };
+            if (this.position.y < 0) { this.position.y = height - 1 };
             return;
         };
         func();
@@ -43,5 +45,6 @@ class Newton {
         textSize(18);
         text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
         text(`Acceleration   ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
+        text(`Position          ${this.position.x.toFixed(4)}  ${this.position.y.toFixed(8)}`, 20, 260);
     }
 }

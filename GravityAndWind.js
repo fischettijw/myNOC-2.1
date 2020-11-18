@@ -1,6 +1,6 @@
 // https://www.youtube.com/watch?v=Uibl0UE4VH8&list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM&index=17
 
-let t, diam, clr, mass, maxVel, gravity;
+let t, diam, clr, mass, maxVel;
 
 function initialize() {
     initMyVariableNames();
@@ -14,10 +14,9 @@ function setup() {
     initialize();
     createCanvas(460, 400).position(20, 20);
     let p = createVector(50, height / 2);
-    let v = createVector(1, 3);
+    let v = createVector(1, 1);
     let a = createVector(0, 0.01);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
-    gravity = createVector(0, .001)
 }
 
 function draw() {
@@ -27,8 +26,11 @@ function draw() {
     t.update();
 }
 
-function mousePressed() {
-    t.applyForce(gravity);
+function keyPressed() {
+    if (keyCode === DOWN_ARROW) { t.applyForce(createVector(0, .001)); }
+    if (keyCode === UP_ARROW) { t.applyForce(createVector(0, -.001)); }
+    if (keyCode === RIGHT_ARROW) { t.applyForce(createVector(.001, 0)); }
+    if (keyCode === LEFT_ARROW) { t.applyForce(createVector(-.001, 0)); }
 }
 
 function myEdges() {
