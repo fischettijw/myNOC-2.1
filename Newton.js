@@ -8,8 +8,8 @@ class Newton {
     }
 
     show() {
-        fill(clr);
-        circle(this.position.x, this.position.y, diam);
+        fill(this.clr);
+        circle(this.position.x, this.position.y, this.diam);
     }
 
     update() {
