@@ -19,6 +19,13 @@ class Newton {
     }
 
     applyForce(force) {
+        //  // let f = p5.Vector.div(force / this.mass);
+        // let f = force;
+        // f.div(this.mass);
+        // this.acceleration.add(f);
+        if (this.velocity.mag() > this.vLimit - .001) { this.acceleration = 0; }
+
+        force.div(this.mass);
         this.acceleration.add(force);
     }
 

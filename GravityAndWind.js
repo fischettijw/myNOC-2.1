@@ -6,7 +6,7 @@ function initialize() {
     initMyVariableNames();
     diam = 10;
     clr = _clrAlmostRed;
-    mass = 1;
+    mass = 0;
     maxVel = 4;
 }
 
@@ -17,13 +17,18 @@ function setup() {
     let v = createVector(1, 1);
     let a = createVector(0, 0.01);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
+    // tt = new Newton(p, v, a, 2 * diam, 3, 'green', 10);
 }
 
 function draw() {
     background(_clrAlmostBlack);
     t.show();
     t.edges(); // t.edges(myEdges);
+    t.applyForce(createVector(0, .00001));
     t.update();
+    // tt.show();
+    // tt.edges(); // t.edges(myEdges);
+    // tt.update();
 }
 
 function keyPressed() {
