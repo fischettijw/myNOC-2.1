@@ -24,7 +24,7 @@ function draw() {
     background(_clrAlmostBlack);
     t.show();
     t.edges(); // t.edges(myEdges);
-    t.applyForce(createVector(0, .00001));
+    // t.applyForce(createVector(0, .00001));
     t.update();
     // tt.show();
     // tt.edges(); // t.edges(myEdges);
