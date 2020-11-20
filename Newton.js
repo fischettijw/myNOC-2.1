@@ -22,11 +22,11 @@ class Newton {
         this.acceleration.add(force);
     }
 
-    update() {
+    update(db) {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
-        this.debugOutput();
+        if (db) this.debugOutput();
     }
 
     edges(func) {

@@ -17,6 +17,11 @@ function setup() {
     let v = createVector(1, 1);
     let a = createVector(0, 0.01);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
+
+    let pp = createVector(width / 2, height / 2);
+    let vv = createVector(-2, -2);
+    let aa = createVector(0.01, 0);
+    tt = new Newton(pp, vv, aa, diam * 2, mass, 'green', maxVel);
 }
 
 function draw() {
@@ -24,6 +29,9 @@ function draw() {
     t.show();
     t.edges(); // t.edges(myEdges);
     t.update();
+    tt.show();
+    tt.edges(); // t.edges(myEdges);
+    tt.update();
 }
 
 function keyPressed() {
