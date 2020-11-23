@@ -21,16 +21,16 @@ function setup() {
     let pp = createVector(width / 2, height / 2);
     let vv = createVector(-2, -2);
     let aa = createVector(0.01, 0);
-    tt = new Newton(pp, vv, aa, diam * 2, mass, 'green', maxVel);
+    tt = new Newton(pp, vv, aa, diam * 2, mass, 'green', maxVel * 2);
 }
 
 function draw() {
     background(_clrAlmostBlack);
     t.show();
-    t.edges(); // t.edges(myEdges);
-    t.update();
+    t.edges(myEdges); // t.edges(myEdges);
+    t.update(true);
     tt.show();
-    tt.edges(); // t.edges(myEdges);
+    tt.edges(myEdges); // t.edges(myEdges);
     tt.update();
 }
 
@@ -41,9 +41,9 @@ function keyPressed() {
     if (keyCode === LEFT_ARROW) { t.applyForce(createVector(-.001, 0)); }
 }
 
-function myEdges() {
-    if (t.position.x >= width) { t.velocity.x *= -1 }
-    if (t.position.x < 0) { t.velocity.x *= -1 }
-    if (t.position.y >= height) { t.velocity.y *= -1 }
-    if (t.position.y < 0) { t.velocity.y *= -1 }
+function myEdges(instance) {
+    if (instance.position.x >= width) { instance.velocity.x *= -1 }
+    if (instance.position.x < 0) { instance.velocity.x *= -1 }
+    if (instance.position.y >= height) { instance.velocity.y *= -1 }
+    if (instance.position.y < 0) { instance.velocity.y *= -1 }
 }
