@@ -14,8 +14,8 @@ function setup() {
     initialize();
     createCanvas(460, 400).position(20, 20);
     let p = createVector(50, height / 2);
-    let v = createVector(1, 1);
-    let a = createVector(0, 0.01);
+    let v = createVector(1, 0);
+    let a = createVector(0, 0.0);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 
     let pp = createVector(width / 2, height / 2);
@@ -41,9 +41,9 @@ function keyPressed() {
     if (keyCode === LEFT_ARROW) { t.applyForce(createVector(-.001, 0)); }
 }
 
-function myEdges(instance) {
-    if (instance.position.x >= width) { instance.velocity.x *= -1 }
-    if (instance.position.x < 0) { instance.velocity.x *= -1 }
-    if (instance.position.y >= height) { instance.velocity.y *= -1 }
-    if (instance.position.y < 0) { instance.velocity.y *= -1 }
+function myEdges(newtonInstance) {
+    if (newtonInstance.position.x >= width) { newtonInstance.velocity.x *= -1 }
+    if (newtonInstance.position.x < 0) { newtonInstance.velocity.x *= -1 }
+    if (newtonInstance.position.y >= height) { newtonInstance.velocity.y *= -1 }
+    if (newtonInstance.position.y < 0) { newtonInstance.velocity.y *= -1 }
 }
