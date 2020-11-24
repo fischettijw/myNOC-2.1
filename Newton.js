@@ -26,17 +26,21 @@ class Newton {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
-        if (db) this.debugOutput();
+        this.debugOutput();
     }
 
-    edges(func) {
-        if (func == null) {
-            if (this.position.x >= width) { this.position.x = 0 };
-            if (this.position.x < 0) { this.position.x = width - 1 };
-            if (this.position.y >= height) { this.position.y = 0 };
-            if (this.position.y < 0) { this.position.y = height - 1 };
-        } else {
-            func(this);
+    edges() {
+        if (this.position.x + (this.diam / 2) >= width) {
+            this.position.x = width - (this.diam / 2);
+            this.velocity.x *= -1;
+        }
+        if (this.position.x - (this.diam / 2) < 0) {
+            this.position.x = this.diam / 2;
+            this.velocity.x *= -1;
+        }
+        if (this.position.y + (this.diam / 2) > height) {
+            this.position.y = height - (this.diam / 2);
+            this.velocity.y *= -1;
         }
     }
 

@@ -4,7 +4,7 @@ let t, diam, clr, mass, maxVel;
 
 function initialize() {
     initMyVariableNames();
-    diam = 10;
+    diam = 30;
     clr = _clrAlmostRed;
     mass = 1;
     maxVel = 5;
@@ -13,24 +13,17 @@ function initialize() {
 function setup() {
     initialize();
     createCanvas(460, 400).position(20, 20);
-    let p = createVector(diam / 2, height / 2);
-    let v = createVector(1, 0);
-    let a = createVector(0, 0.0);
+    let p = createVector(width / 2, height / 2);
+    let v = createVector(4, 0);
+    let a = createVector(0, 0.3);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
 function draw() {
     background(_clrAlmostBlack);
     t.show();
-    t.edges(myEdges); // t.edges(myEdges);
-    t.update(true);
-}
-
-function myEdges(newtonInstance) {
-    if (newtonInstance.position.x >= width) { newtonInstance.velocity.x *= -1 }
-    if (newtonInstance.position.x < 0) { newtonInstance.velocity.x *= -1 }
-    if (newtonInstance.position.y >= height) { newtonInstance.velocity.y *= -1 }
-    if (newtonInstance.position.y < 0) { newtonInstance.velocity.y *= -1 }
+    t.edges();
+    t.update();
 }
 
 function keyPressed() {
