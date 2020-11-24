@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=Uibl0UE4VH8&list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM&index=17
+// Terminal Velocity       https://www.grc.nasa.gov/www/k-12/airplane/termv.html
 
 let t, diam, clr, mass, maxVel;
 
@@ -13,9 +14,9 @@ function initialize() {
 function setup() {
     initialize();
     createCanvas(460, 400).position(20, 20);
-    let p = createVector(width / 2, height / 2);
-    let v = createVector(4, 0);
-    let a = createVector(0, 0.3);
+    let p = createVector(diam / 2, diam / 2);
+    let v = createVector(2, 0);
+    let a = createVector(0, 0.1);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
