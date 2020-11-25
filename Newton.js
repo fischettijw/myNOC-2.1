@@ -10,11 +10,6 @@ class Newton {
         this.diam = diam;
         this.mass = mass;
         this.clr = clr;
-        // if (vLimit == null) {
-        //     this.vLimit = Number.MAX_VALUE; // 1.7976931348623157e+308
-        // } else {
-        //     this.vLimit = vLimit;
-        // }
     }
 
     show() {
