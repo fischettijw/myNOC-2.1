@@ -1,8 +1,7 @@
 class Newton {
-
+    static wallDampeningX = 0.95;
+    static wallDampeningY = 0.8;
     constructor(pos, vel, acc, diam, mass, clr, vLimit) {
-        this.wallDampeningX = 0.95;
-        this.wallDampeningY = 0.8;
         this.position = pos;
         this.velocity = vel;
         this.prevVelocityY = 100000;
@@ -31,15 +30,15 @@ class Newton {
     edges() {
         if (this.position.x + (this.diam / 2) >= width) {
             this.position.x = width - (this.diam / 2);
-            this.velocity.x *= -this.wallDampeningX;
+            this.velocity.x *= -Newton.wallDampeningX;
         }
         if (this.position.x - (this.diam / 2) < 0) {
             this.position.x = this.diam / 2;
-            this.velocity.x *= -this.wallDampeningX;
+            this.velocity.x *= -Newton.wallDampeningX;
         }
         if (this.position.y + (this.diam / 2) > height) {
             this.position.y = height - (this.diam / 2);
-            this.velocity.y *= -this.wallDampeningY;
+            this.velocity.y *= -Newton.wallDampeningY;
         }
     }
 
