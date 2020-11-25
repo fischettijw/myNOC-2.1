@@ -1,6 +1,8 @@
 class Newton {
     static wallDampeningX = 0.95;
     static wallDampeningY = 0.8;
+    static numNewtons = 0;
+
     constructor(pos, vel, acc, diam, mass, clr, vLimit) {
         this.position = pos;
         this.velocity = vel;
@@ -9,6 +11,7 @@ class Newton {
         this.diam = diam;
         this.mass = mass;
         this.clr = clr;
+        Newton.numNewtons += 1;
     }
 
     show() {
