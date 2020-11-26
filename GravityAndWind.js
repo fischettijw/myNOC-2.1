@@ -3,12 +3,13 @@
 
 let t, diam, clr, mass, maxVel;
 let btnUp, btnDown, btnLeft, btnRight;
+let accInput;
 
 function initialize() {
     initMyVariableNames();
     diam = 30;
     clr = _clrAlmostRed;
-    mass = 1;
+    mass = 100;
     maxVel = 5;
     createButtons();
 }
@@ -25,13 +26,16 @@ function createButtons() {
 
     btnUp = createButton("RIGHT").position(width + 20, 100).style(`width: 60px; height: 28px`).id('RIGHT')
     document.getElementById('RIGHT').onclick = function() { btnClicked('RIGHT'); }
+
+    accInput = createInput(0.02).position(width + 20, 150).style(`width: 54px; height: 20px`);
 }
 
 function btnClicked(btn) {
-    if (btn == 'UP') { t.applyForce(createVector(0, -.01)); }
-    if (btn == 'DOWN') { t.applyForce(createVector(0, .01)); }
-    if (btn == 'LEFT') { t.applyForce(createVector(-.01, 0)); }
-    if (btn == 'RIGHT') { t.applyForce(createVector(.01, 0)); }
+    inpt = parseFloat(accInput.value());
+    if (btn == 'UP') { t.applyForce(createVector(0, -inpt)); }
+    if (btn == 'DOWN') { t.applyForce(createVector(0, inpt)); }
+    if (btn == 'LEFT') { t.applyForce(createVector(-inpt, 0)); }
+    if (btn == 'RIGHT') { t.applyForce(createVector(inpt, 0)); }
 }
 
 function setup() {
