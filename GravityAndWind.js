@@ -9,7 +9,7 @@ function initialize() {
     initMyVariableNames();
     diam = 30;
     clr = _clrAlmostRed;
-    mass = 100;
+    mass = 5;
     maxVel = 5;
     createButtons();
 }
@@ -27,7 +27,8 @@ function createButtons() {
     btnUp = createButton("RIGHT").position(width + 20, 100).style(`width: 60px; height: 28px`).id('RIGHT')
     document.getElementById('RIGHT').onclick = function() { btnClicked('RIGHT'); }
 
-    accInput = createInput(0.02).position(width + 20, 150).style(`width: 54px; height: 20px`);
+    accInput = createInput(0.0200).position(width + 20, 150).style(`width: 54px; height: 20px;
+                                                                  font-size: 14px; text-align: center`);
 }
 
 function btnClicked(btn) {

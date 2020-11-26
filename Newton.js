@@ -6,7 +6,6 @@ class Newton {
     constructor(pos, vel, acc, diam, mass, clr, vLimit) {
         this.position = pos;
         this.velocity = vel;
-        this.prevVelocityY = 100000;
         this.acceleration = acc;
         this.diam = diam;
         this.mass = mass;
@@ -20,7 +19,8 @@ class Newton {
     }
 
     applyForce(force) {
-        this.acceleration.add(force);
+        let f = p5.Vector.div(force, this.mass);
+        this.acceleration.add(f);
     }
 
     update(db) {
