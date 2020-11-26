@@ -9,7 +9,7 @@ function initialize() {
     initMyVariableNames();
     diam = 30;
     clr = _clrAlmostRed;
-    mass = 5;
+    mass = 1;
     maxVel = 5;
     createButtons();
 }
@@ -43,8 +43,10 @@ function setup() {
     createCanvas(400, 400).position(10, 10);
     initialize();
     let p = createVector(diam / 2, diam / 2);
-    let v = createVector(2, 0);
-    let a = createVector(0, 0.1);
+    let v = createVector(0, 0);
+    let a = createVector(0, 0);
+    // let v = createVector(2, 0);
+    // let a = createVector(0, 0.1);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
