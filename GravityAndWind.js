@@ -2,8 +2,8 @@
 // Terminal Velocity       https://www.grc.nasa.gov/www/k-12/airplane/termv.html
 
 let t, diam, clr, mass, maxVel;
-let btnUp, btnDown, btnLeft, btnRight;
-let accInput;
+let btnUp, btnDown, btnLeft, btnRight, btnGravity;
+let accInput, grvInput;
 
 function initialize() {
     initMyVariableNames();
@@ -15,20 +15,27 @@ function initialize() {
 }
 
 function createButtons() {
-    btnUp = createButton("UP").position(width + 20, 10).style(`width: 60px; height: 28px`).id('UP');
+    btnUp = createButton("UP").position(width + 20, 10).style(`width: 70px; height: 28px`).id('UP');
     document.getElementById('UP').onclick = function() { btnClicked('UP'); }
 
-    btnUp = createButton("DOWN").position(width + 20, 40).style(`width: 60px; height: 28px`).id('DOWN');
+    btnDown = createButton("DOWN").position(width + 20, 40).style(`width: 70px; height: 28px`).id('DOWN');
     document.getElementById('DOWN').onclick = function() { btnClicked('DOWN'); }
 
-    btnUp = createButton("LEFT").position(width + 20, 70).style(`width: 60px; height: 28px`).id('LEFT');
+    btnLeft = createButton("LEFT").position(width + 20, 70).style(`width: 70px; height: 28px`).id('LEFT');
     document.getElementById('LEFT').onclick = function() { btnClicked('LEFT'); }
 
-    btnUp = createButton("RIGHT").position(width + 20, 100).style(`width: 60px; height: 28px`).id('RIGHT')
+    btnRight = createButton("RIGHT").position(width + 20, 100).style(`width: 70px; height: 28px`).id('RIGHT');
     document.getElementById('RIGHT').onclick = function() { btnClicked('RIGHT'); }
 
-    accInput = createInput(0.0200).position(width + 20, 150).style(`width: 54px; height: 20px;
-                                                                  font-size: 14px; text-align: center`);
+    accInput = createInput(0.0200).position(width + 20, 150).style(`width: 62px; height: 20px;font-size: 
+                                                                    14px; text-align: center`);
+
+
+    btnGravity = createButton("GRAVITY").position(width + 20, 250).style(`width: 70px; height: 28px`).id('GRAVITY');
+    document.getElementById('GRAVITY').onclick = function() { btnClicked('GRAVITY'); }
+
+    grvInput = createInput(0.0100).position(width + 20, 300).style(`width: 62px; height: 20px; font-size: 
+                                                                    14px; text-align: center`);
 }
 
 function btnClicked(btn) {
@@ -37,16 +44,18 @@ function btnClicked(btn) {
     if (btn == 'DOWN') { t.applyForce(createVector(0, inpt)); }
     if (btn == 'LEFT') { t.applyForce(createVector(-inpt, 0)); }
     if (btn == 'RIGHT') { t.applyForce(createVector(inpt, 0)); }
+    inpt = parseFloat(grvInput.value());
+    if (btn == 'GRAVITY') { alert(inpt); }
 }
 
 function setup() {
     createCanvas(400, 400).position(10, 10);
     initialize();
     let p = createVector(diam / 2, diam / 2);
-    let v = createVector(0, 0);
-    let a = createVector(0, 0);
-    // let v = createVector(2, 0);
-    // let a = createVector(0, 0.1);
+    // let v = createVector(0, 0);
+    // let a = createVector(0, 0);
+    let v = createVector(2, 0);
+    let a = createVector(0, 0.1);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
