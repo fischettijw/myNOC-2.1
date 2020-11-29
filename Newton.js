@@ -51,5 +51,6 @@ class Newton {
         text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
         text(`Acceleration      ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
         text(`Position          ${this.position.x.toFixed(4)}  ${this.position.y.toFixed(8)}`, 20, 260);
+        text(`Mass              ${this.mass.toFixed(4)}`, 20, 300);
     }
 }
