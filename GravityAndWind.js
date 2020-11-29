@@ -9,7 +9,7 @@ function initialize() {
     initMyVariableNames();
     diam = 30;
     clr = _clrAlmostRed;
-    mass = 1;
+    mass = 2;
     maxVel = 5;
     createButtons();
 }
@@ -55,7 +55,8 @@ function setup() {
     // let v = createVector(0, 0);
     // let a = createVector(0, 0);
     let v = createVector(2, 0);
-    let a = createVector(0, 0.1);
+    let a = p5.Vector.mult(createVector(0, 0.1), mass);
+    // let a = createVector(0, 0.1);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
