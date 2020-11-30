@@ -26,7 +26,7 @@ class Newton {
     update(db) {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
-        if (this.position.y > height - this.diam / 2 && this.velocity.y < .1) {
+        if (this.position.y > height - this.diam / 2 && this.velocity.y < this.mass / 10) {
             this.velocity.y = 0;
             this.acceleration.y = 0;
         }
