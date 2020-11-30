@@ -33,8 +33,8 @@ class Newton {
             this.acceleration.y = 0;
         }
         if (this.velocity.y == 0 && this.acceleration.y == 0) {
-            this.velocity.x *= Newton.frictionDecay; // friction
-            if (abs(this.velocity.x) < Newton.frictionStop) { this.velocity.x = 0; } // friction
+            this.velocity.x *= Newton.frictionDecay;
+            if (abs(this.velocity.x) < Newton.frictionStop) { this.velocity.x = 0; }
         }
         this.debugOutput();
     }

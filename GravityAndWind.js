@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=Uibl0UE4VH8&list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM&index=17
 // Terminal Velocity       https://www.grc.nasa.gov/www/k-12/airplane/termv.html
 
-let t, diam, clr, mass, maxVel;
+let t, diam, clr, mass;
 let btnUp, btnDown, btnLeft, btnRight, btnGravity;
 let accInput, grvInput;
 
@@ -10,7 +10,6 @@ function initialize() {
     diam = 30;
     clr = _clrAlmostRed;
     mass = 1;
-    maxVel = 5;
     createButtons();
 }
 
@@ -55,7 +54,7 @@ function setup() {
     let v = createVector(2, 0);
     // let a = createVector(0, 0.1635);
     let a = createVector(0, 0.1635).mult(mass);
-    t = new Newton(p, v, a, diam, mass, clr, maxVel);
+    t = new Newton(p, v, a, diam, mass, clr);
 }
 
 function draw() {
