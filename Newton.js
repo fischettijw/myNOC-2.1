@@ -26,6 +26,10 @@ class Newton {
     update(db) {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
+        if (this.position.y > height - this.diam / 2 && this.velocity.y < .1) {
+            this.velocity.y = 0;
+            this.acceleration.y = 0;
+        }
         // if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
         this.debugOutput();
     }
@@ -48,7 +52,7 @@ class Newton {
     debugOutput() {
         fill('yellow');
         textSize(18);
-        text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(8)}`, 20, 180);
+        text(`Velocity          ${this.velocity.x.toFixed(4)}  ${this.velocity.y.toFixed(14)}`, 20, 180);
         text(`Acceleration      ${this.acceleration.x.toFixed(4)}  ${this.acceleration.y.toFixed(8)}`, 20, 220);
         text(`Position          ${this.position.x.toFixed(4)}  ${this.position.y.toFixed(8)}`, 20, 260);
         text(`Mass              ${this.mass.toFixed(4)}`, 20, 300);

@@ -53,8 +53,8 @@ function setup() {
     initialize();
     let p = createVector(diam / 2, diam / 2);
     let v = createVector(2, 0);
-    let a = createVector(0, 0.1635);
-    // let a = createVector(0, 0.1635).mult(mass);
+    // let a = createVector(0, 0.1635);
+    let a = createVector(0, 0.1635).mult(mass);
     t = new Newton(p, v, a, diam, mass, clr, maxVel);
 }
 
