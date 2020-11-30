@@ -65,7 +65,7 @@ function setup() {
         balls[i] = new Newton(createVector(random(diam / 2, width - diam / 2), diam / 2),
             createVector(random(1, 3), 0),
             createVector(0, random(.1, .2)),
-            random(10, 50), random(1, 5),
+            random(10, 100), random(1, 5),
             color(random(255), random(255), random(255)), maxVel);
     }
 }
