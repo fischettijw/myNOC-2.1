@@ -1,9 +1,11 @@
 class Newton {
     static wallDampeningX = 0.95;
     static wallDampeningY = 0.8;
+    static frictionDecay = 0.99;
+    static frictionStop = 0.3;
     static numNewtons = 0;
 
-    constructor(pos, vel, acc, diam, mass, clr, vLimit) {
+    constructor(pos, vel, acc, diam, mass, clr) {
         this.position = pos;
         this.velocity = vel;
         this.acceleration = acc;
@@ -31,10 +33,9 @@ class Newton {
             this.acceleration.y = 0;
         }
         if (this.velocity.y == 0 && this.acceleration.y == 0) {
-            this.velocity.x *= 0.99; // friction
-            if (abs(this.velocity.x) < .3) { this.velocity.x = 0; } // friction
+            this.velocity.x *= Newton.frictionDecay; // friction
+            if (abs(this.velocity.x) < Newton.frictionStop) { this.velocity.x = 0; } // friction
         }
-        // if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
         this.debugOutput();
     }
 
