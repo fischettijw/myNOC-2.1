@@ -4,6 +4,8 @@
 let t, diam, clr, mass, maxVel;
 let btnUp, btnDown, btnLeft, btnRight, btnGravity;
 let accInput, grvInput;
+let balls = [],
+    numBalls;
 
 function initialize() {
     initMyVariableNames();
@@ -11,6 +13,7 @@ function initialize() {
     clr = _clrAlmostRed;
     mass = 1;
     maxVel = 5;
+    numBalls = 5;
     createButtons();
 }
 
@@ -54,13 +57,27 @@ function setup() {
     let p = createVector(diam / 2, diam / 2);
     let v = createVector(2, 0);
     let a = createVector(0, 0.1635);
+
     // let a = createVector(0, 0.1635).mult(mass);
-    t = new Newton(p, v, a, diam, mass, clr, maxVel);
+    // t = new Newton(p, v, a, diam, mass, clr, maxVel);
+
+    for (i = 0; i < numBalls; i++) {
+        balls[i] = new Newton(createVector(random(diam / 2, width - diam / 2), diam / 2),
+            createVector(random(1, 3), 0),
+            createVector(0, random(.1, .2)),
+            random(10, 50), random(1, 5),
+            color(random(255), random(255), random(255)), maxVel);
+    }
 }
 
 function draw() {
     background(_clrAlmostBlack);
-    t.show();
-    t.edges();
-    t.update();
+    // t.show();
+    // t.edges();
+    // t.update();
+    for (i = 0; i < numBalls; i++) {
+        balls[i].show();
+        balls[i].edges();
+        balls[i].update();
+    }
 }

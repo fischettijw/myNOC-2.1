@@ -27,7 +27,7 @@ class Newton {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         // if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
-        this.debugOutput();
+        // this.debugOutput();
     }
 
     edges() {
