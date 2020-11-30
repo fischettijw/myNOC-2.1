@@ -30,6 +30,10 @@ class Newton {
             this.velocity.y = 0;
             this.acceleration.y = 0;
         }
+        if (this.velocity.y == 0 && this.acceleration.y == 0) {
+            this.velocity.x *= 0.99; // friction
+            if (abs(this.velocity.x) < .3) { this.velocity.x = 0; } // friction
+        }
         // if (this.velocity.mag() >= this.vLimit) { this.velocity.setMag(this.vLimit) };
         this.debugOutput();
     }
